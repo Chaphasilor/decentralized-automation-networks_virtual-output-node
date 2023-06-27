@@ -22,7 +22,7 @@ pub fn main() -> () {
 
     println!("Starting output node @ area '{}', inbound port is {}", args.area, args.incoming_port);
 
-    let inbound_socket = UdpSocket::bind(format!("127.0.0.1:{}", args.incoming_port)).expect("Couldn't bind inbound socket");
+    let inbound_socket = UdpSocket::bind(format!("0.0.0.0:{}", args.incoming_port)).expect("Couldn't bind inbound socket");
     // let timeout = Duration::from_millis(10);
     // inbound_socket.set_read_timeout(timeout.into()).expect("Couldn't set socket timeout");
 
