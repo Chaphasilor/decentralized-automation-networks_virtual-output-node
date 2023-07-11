@@ -4,7 +4,7 @@ use std::{
 };
 use clap::Parser;
 
-/// A simple application emulating a physical input node
+/// A simple application emulating a physical output node
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
 struct Args {
@@ -23,8 +23,6 @@ pub fn main() -> () {
     println!("Starting output node @ area '{}', inbound port is {}", args.area, args.incoming_port);
 
     let inbound_socket = UdpSocket::bind(format!("0.0.0.0:{}", args.incoming_port)).expect("Couldn't bind inbound socket");
-    // let timeout = Duration::from_millis(10);
-    // inbound_socket.set_read_timeout(timeout.into()).expect("Couldn't set socket timeout");
 
     let mut buf = [0; 1024];
 
